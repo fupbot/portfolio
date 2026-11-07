@@ -1,0 +1,160 @@
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem 4rem;
+}
+
+.hero {
+  margin-bottom: 4rem;
+}
+
+.hero-eyebrow {
+  margin: 0 0 0.5rem;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.hero-role {
+  margin: 0 0 0.75rem;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+.hero-flag {
+  height: 0.85em;
+  margin-left: 0.5rem;
+  vertical-align: -0.1em;
+  border-radius: 2px;
+}
+
+.hero-name {
+  margin: 0 0 0.25rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.hero-tagline {
+  margin: 0 0 1.25rem;
+  color: var(--text-dim);
+  font-size: 1rem;
+}
+
+.hero-about-intro {
+  margin: 0 0 0.5rem;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.about {
+  margin-top: 4rem;
+}
+
+.hero-about {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.hero-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.hero-link {
+  display: inline-block;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-bottom: 1px solid transparent;
+}
+
+.hero-link:hover {
+  border-bottom-color: var(--accent);
+}
+
+.section-title {
+  margin: 0 0 1.5rem;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.project-card {
+  display: block;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s ease;
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+}
+
+.project-card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.project-langs {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.4rem;
+}
+
+.project-lang-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.project-description {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.footer a + a {
+  margin-left: 1rem;
+}
+
+.footer a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.footer a:hover {
+  color: var(--accent);
+}

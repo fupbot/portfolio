@@ -1,0 +1,35 @@
+:root {
+  color-scheme: dark;
+  --bg: #0a0a0a;
+  --surface: #131313;
+  --border: #232323;
+  --text: #e8e8e6;
+  --text-dim: #8a8a86;
+  --accent: #7fffa8;
+
+  font-family: 'JetBrains Mono', 'SFMono-Regular', ui-monospace, Menlo, Consolas, monospace;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
