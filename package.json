@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
+    "fetch-projects": "node scripts/fetch-projects.mjs",
+    "build": "node scripts/fetch-projects.mjs && tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "marked": "^18.2.1",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },

@@ -1,7 +1,37 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+}
+
+.nav-link {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
 .page {
   max-width: 720px;
   margin: 0 auto;
-  padding: 6rem 1.5rem 4rem;
+  padding: 4rem 1.5rem 4rem;
 }
 
 .hero {
@@ -48,8 +78,15 @@
   font-size: 0.85rem;
 }
 
-.about {
+.about,
+.blog {
   margin-top: 4rem;
+}
+
+/* Keep section headings clear of the sticky nav when jumping to them. */
+.section,
+#contact {
+  scroll-margin-top: 4.5rem;
 }
 
 .hero-about {
@@ -157,4 +194,119 @@
 
 .footer a:hover {
   color: var(--accent);
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.post-item {
+  display: block;
+  padding: 1rem 1.25rem;
+  border-left: 2px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s ease;
+}
+
+.post-item:hover {
+  border-left-color: var(--accent);
+}
+
+.post-item-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.post-item-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.post-item-date,
+.post-date {
+  flex-shrink: 0;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+}
+
+.post-item-abstract,
+.blog-empty {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.post-back {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.post-back:hover {
+  color: var(--accent);
+}
+
+.post-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.post-body {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.post-body h2,
+.post-body h3 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.post-body a {
+  color: var(--accent);
+}
+
+.post-body code {
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: var(--surface);
+  font-size: 0.9em;
+}
+
+.post-body pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.post-body pre code {
+  padding: 0;
+  background: none;
+}
+
+.post-body img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.post-body blockquote {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--border);
+  color: var(--text-dim);
 }

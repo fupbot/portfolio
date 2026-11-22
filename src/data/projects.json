@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1372921214,
+    "name": "llm_memory",
+    "description": "ROS 2 package for OKF format LLM memory for robots' missions.",
+    "languages": [
+      "python"
+    ],
+    "url": "https://github.com/fupbot/llm_memory"
+  },
+  {
+    "id": 1360724225,
+    "name": "acontabill",
+    "description": "Expenses sharing app with installments and local data only.",
+    "languages": [
+      "typescript"
+    ],
+    "url": "https://github.com/fupbot/acontabill"
+  },
+  {
+    "id": 1346724091,
+    "name": "tapngo",
+    "description": "Simple snack bar self service checkout",
+    "languages": [
+      "typescript",
+      "python"
+    ],
+    "url": "https://github.com/fupbot/tapngo"
+  },
+  {
+    "id": 518196201,
+    "name": "ROSActiveExplorationCMP545",
+    "description": "GUI for mapping environment as the robot moves around.",
+    "languages": [
+      "cpp"
+    ],
+    "url": "https://github.com/fupbot/ROSActiveExplorationCMP545"
+  },
+  {
+    "id": 500985521,
+    "name": "AutomaticPivotDetectorCMP197",
+    "description": "A computer vision program developed to find and analyze irrigation pivot with multiespectral satellite imagery.",
+    "languages": [
+      "jupyter"
+    ],
+    "url": "https://github.com/fupbot/AutomaticPivotDetectorCMP197"
+  },
+  {
+    "id": 481371144,
+    "name": "AlgorithmsForHeartDiseaseCMP263",
+    "description": "Auxiliary data for reproducibility of the paper 'Comparative Analysis of Classification Algorithms for the Prediction of Heart Disease'",
+    "languages": [
+      "python"
+    ],
+    "url": "https://github.com/fupbot/AlgorithmsForHeartDiseaseCMP263"
+  }
+]
