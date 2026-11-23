@@ -1,52 +1,44 @@
-import { marked } from 'marked'
-
 export interface Post {
   slug: string
   title: string
   date: string
   abstract: string
+  tags: string[]
+  readingMinutes: number
   html: string
 }
 
+// Shape produced by vite-plugin-posts.ts for each `?post` import.
+type RawPost = Omit<Post, 'slug' | 'title'> & { title?: string; draft: boolean }
+
 // Every Markdown file in src/posts/ is a post; the file name is its slug.
+// The `?post` query hands the file to vite-plugin-posts.ts, which parses the
+// frontmatter and renders + syntax-highlights the Markdown at build time.
 const files = import.meta.glob('../posts/*.md', {
-  query: '?raw',
+  query: '?post',
   import: 'default',
   eager: true,
-}) as Record<string, string>
-
-// Minimal frontmatter: `key: value` lines between leading `---` markers.
-function parseFrontmatter(raw: string): { meta: Record<string, string>; body: string } {
-  const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/)
-  if (!match) return { meta: {}, body: raw }
-  const meta: Record<string, string> = {}
-  for (const line of match[1].split(/\r?\n/)) {
-    const i = line.indexOf(':')
-    if (i > 0) meta[line.slice(0, i).trim()] = line.slice(i + 1).trim()
-  }
-  return { meta, body: match[2] }
-}
+}) as Record<string, RawPost>
 
 export const posts: Post[] = Object.entries(files)
-  .map(([file, raw]) => {
+  .map(([file, { draft, ...post }]) => {
     const slug = file.split('/').pop()!.replace(/\.md$/, '')
-    const { meta, body } = parseFrontmatter(raw)
-    return {
-      slug,
-      title: meta.title ?? slug,
-      date: meta.date ?? '',
-      abstract: meta.abstract ?? '',
-      draft: meta.draft === 'true',
-      html: marked.parse(body, { async: false }),
-    }
+    return { draft, post: { ...post, slug, title: post.title ?? slug } }
   })
   // Drafts are visible in `npm run dev` only.
-  .filter((post) => import.meta.env.DEV || !post.draft)
+  .filter(({ draft }) => import.meta.env.DEV || !draft)
+  .map(({ post }) => post)
   .sort((a, b) => b.date.localeCompare(a.date))
-  .map(({ slug, title, date, abstract, html }) => ({ slug, title, date, abstract, html }))
 
 export function getPost(slug: string): Post | undefined {
   return posts.find((post) => post.slug === slug)
+}
+
+// Chronological neighbours of a post (posts are sorted newest first).
+export function getAdjacentPosts(slug: string): { newer?: Post; older?: Post } {
+  const i = posts.findIndex((post) => post.slug === slug)
+  if (i < 0) return {}
+  return { newer: posts[i - 1], older: posts[i + 1] }
 }
 
 export function postPath(slug: string): string {
